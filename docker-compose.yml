@@ -1,0 +1,14 @@
+services:
+  cursorclaw:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6901:6901"
+    volumes:
+      - ./data:/home/coder/workspace:z
+    env_file:
+      - .env
+    extra_hosts:
+      - "host-gateway:host-gateway"
+    restart: unless-stopped
